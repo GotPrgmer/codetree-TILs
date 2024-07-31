@@ -68,7 +68,7 @@ def score_view(x):
 
 def bfs(x):
     q = deque([x])
-    selected_color = [False] * 5
+    selected_color = [False] * 6
     while q:
         cur = q.popleft()
         color = tree_info[cur][1]
