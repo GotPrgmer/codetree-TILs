@@ -61,14 +61,14 @@ def color_view(m):
 
 def score_view(x):
     value = 0
-    for i in tree_info.keys():
+    for i in tree_rel.keys():
         value += bfs(i)
     return value
 
 
 def bfs(x):
     q = deque([x])
-    selected_color = [False] * 6
+    selected_color = [False] * 5
     while q:
         cur = q.popleft()
         color = tree_info[cur][1]
