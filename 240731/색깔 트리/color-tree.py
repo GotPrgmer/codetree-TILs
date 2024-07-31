@@ -59,7 +59,7 @@ def color_view(m):
     return tree_info[m][1]
 
 
-def score_view(x):
+def score_view():
     value = 0
     for i in tree_info.keys():
         if i != -1:
@@ -77,11 +77,11 @@ def bfs(x):
         for child in tree_rel[cur]:
             if child != 0 and child != -1:
                 q.append(child)
-    return sum(selected_color)**2
+    v = sum(selected_color)
+    return v**2
 
 
 Q = int(input())
-start = -1
 tree_rel = defaultdict(list)
 tree_info = defaultdict(list)
 for _ in range(Q):
@@ -97,4 +97,4 @@ for _ in range(Q):
     elif cmd_kind == 300:
         print(color_view(cmd_line[1]))
     else:
-        print(score_view(start))
+        print(score_view())
