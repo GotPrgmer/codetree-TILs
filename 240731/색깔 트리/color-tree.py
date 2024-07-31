@@ -61,8 +61,9 @@ def color_view(m):
 
 def score_view(x):
     value = 0
-    for i in tree_rel.keys():
-        value += bfs(i)
+    for i in tree_rel[x]:
+        if i != -1:
+            value += bfs(i)
     return value
 
 
