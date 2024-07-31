@@ -46,13 +46,13 @@ def ascend(m,x, q):
 
 
 def color_change(m,c):
-    color_dfs(m,c,m)
+    color_dfs(c,m)
 
-def color_dfs(m,c,cur):
+def color_dfs(c,cur):
     tree_info[cur][1] = c
     for i in tree_rel[cur]:
         if i != -1:
-            color_dfs(m,c,i)
+            color_dfs(c,i)
 
 
 def color_view(m):
@@ -61,7 +61,7 @@ def color_view(m):
 
 def score_view(x):
     value = 0
-    for i in tree_rel[x]:
+    for i in tree_info.keys():
         if i != -1:
             value += bfs(i)
     return value
