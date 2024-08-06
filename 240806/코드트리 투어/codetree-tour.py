@@ -10,22 +10,17 @@ def cost(start, n):
     global dp
     # 다익스트라
     dp = [INF] * (n)
-    visited = [False] * n
-    dp[start] = 0
-    for i in range(n):
-        v = -1
-        minDist = INF
-        for j in range(n):
-            # 방문하지 않았고 최소값보다 갱신값이 더 작으면
-            # 해당 노드를 방문해야함
-            # 해당 과정으로 n번 돌려서 갱신할 수 있는 값중 가장 작은 값을 찾아서 방문
-            if not visited[j] and minDist > dp[j]:
-                v = j
-                minDist = dp[j]
-        visited[v] = True
-        for j in range(n):
-            if graph[v][j] != INF and dp[j] > graph[v][j] + dp[v]:
-                dp[j] = dp[v] + graph[v][j]
+    q=[]
+    heapq.heappush(q, [0, start])
+    while q:
+        sum_value, cur = heapq.heappop(q)
+        if dp[cur] < sum_value:
+            continue
+        # 갱신
+        dp[cur] = sum_value
+        for c in range(n):
+            if dp[c] > dp[cur] + graph[cur][c]:
+                heapq.heappush(q, [dp[cur] + graph[cur][c], c])
 
 
 def buildLand(n, m, lst):
