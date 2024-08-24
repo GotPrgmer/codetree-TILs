@@ -56,7 +56,7 @@ for name in names:
             #사람이 들어온 시각으로 초기화
             when_eat = saram_entry_time[name]
             if sushi_position>saram_position[name]:
-                add_time = l - (sushi_position-saram_position[name])
+                add_time = L - (sushi_position-saram_position[name])
                 when_eat += add_time
             elif sushi_position<saram_position[name]:
                 add_time = (saram_position[name]-sushi_position)
