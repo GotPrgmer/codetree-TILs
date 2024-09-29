@@ -81,10 +81,10 @@ for cmd in range(1, Q + 1):
         continue
     # 기사들 리스트 이동시키자
     for k in move_knight:
-        if knight!=k:
-            knight_info[k][0] += d_r[direction]
-            knight_info[k][1] += d_c[direction]
-            # 대미지 계산합시다
+        knight_info[k][0] += d_r[direction]
+        knight_info[k][1] += d_c[direction]
+        # 대미지 계산합시다
+        if knight != k:
             damage = 0
             for r in range(knight_info[k][0], knight_info[k][0] + knight_info[k][2]):
                 for c in range(knight_info[k][1], knight_info[k][1] + knight_info[k][3]):
