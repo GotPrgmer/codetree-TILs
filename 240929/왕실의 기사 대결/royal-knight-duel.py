@@ -37,15 +37,7 @@ def checkIfMove(knight, cmd):
             return [-1]
     return knight_list
 
-def calDamage(knight):
-    start_r = knight_info[knight][0]
-    start_c = knight_info[knight][1]
-    damage = 0
-    for r in range(start_r, start_r + knight_info[knight][2]):
-        for c in range(start_c, start_c + knight_info[knight][3]):
-            if trap[r][c]==1:
-                damage += 1
-    return damage
+
 
 L, N, Q = map(int, input().split())
 # 함정정보 입력
@@ -73,8 +65,6 @@ for cmd in range(1, Q + 1):
     while q:
         cur_k = q.popleft()
         knight_list = checkIfMove(cur_k, direction)
-        # 끝자락
-
         #겹치는게 없다?
         if len(knight_list)>0 and knight_list[0] == -1:
             flag = 1
@@ -83,7 +73,7 @@ for cmd in range(1, Q + 1):
         else:
             if cur_k not in visited:
                 move_knight.append(cur_k)
-            visited.add(cur_k)
+                visited.add(cur_k)
             for k in knight_list:
                 if k not in visited:
                     q.append(k)
