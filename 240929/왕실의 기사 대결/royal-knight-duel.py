@@ -25,7 +25,7 @@ def checkIfMove(knight, cmd):
                 for k in knight_info.keys():
                     if knight != k and k not in visited and knight_info[k][4] > knight_info[k][5]:
                         # 검사할 기사의 영역과 겹치는지 확인
-                        if r in range(knight_info[k][0] + knight_info[k][2]) and c in range(
+                        if r in range(knight_info[k][0],knight_info[k][0] + knight_info[k][2]) and c in range(knight_info[k][1],
                                 knight_info[k][1] + knight_info[k][3]):
                             knight_list.append(k)
                             visited.add(k)
